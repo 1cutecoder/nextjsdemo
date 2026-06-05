@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,6 +24,8 @@ export default function RootLayout({
   about,
 }: Readonly<{
   children: React.ReactNode;
+  home: React.ReactNode;
+  about: React.ReactNode;
 }>) {
   return (
     <html
@@ -32,6 +35,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {home}
         {about}
+        <Link className="text-blue-500 block" href="/setting">
+          Setting
+        </Link>
         {children}
       </body>
     </html>
