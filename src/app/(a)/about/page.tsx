@@ -9,7 +9,7 @@ export default async function About() {
   const data = await getData();
   return (
     <div>
-      <h1 className="text-3xl font-bold">About</h1>
+      <h1 className="text-3xl font-bold">About Page</h1>
     </div>
   );
 }

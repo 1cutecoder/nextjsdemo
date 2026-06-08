@@ -35,9 +35,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {home}
         {about}
-        <Link className="text-blue-500 block" href="/setting">
-          Setting
-        </Link>
         {children}
       </body>
     </html>
