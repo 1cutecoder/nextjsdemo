@@ -1,30 +1,12 @@
-"use client";
-import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
-
-const checkLogin = async () => {
-  const res = await fetch("/api/login");
-  const data = await res.json();
-  return data.code === 1;
-};
-
-export default function HomePage() {
-  const [isChecking, setIsChecking] = useState(true);
-
-  useEffect(() => {
-    checkLogin().then((isLoggedIn) => {
-      if (!isLoggedIn) {
-        redirect("/");
-      }
-      setIsChecking(false);
-    }).catch(() => {
-      redirect("/");
-    });
-  }, []);
-
-  if (isChecking) {
-    return <div>检查登录状态...</div>;
-  }
-
-  return <div>你已经登录进入Home页面</div>;
+export const revalidate = 5; // 5秒后重新更新
+export default async function Home() {
+  const randomImage = await fetch("https://www.loliapi.com/acg/pc?type=json"); //这个接口随机返回一个二刺猿图片
+  const data = await randomImage.json();
+  console.log(data);
+  return (
+    <div>
+      <h1>Home</h1>
+      <img width={500} height={500} src={data.url} alt="random image" />
+    </div>
+  );
 }
