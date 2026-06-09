@@ -1,4 +1,4 @@
-export const revalidate = 5; // 5秒后重新更新
+export const dynamic = 'force-dynamic' // 动态更新 缓存组件不需要使用这个 默认都是动态内容
 export default async function Home() {
   const randomImage = await fetch("https://www.loliapi.com/acg/pc?type=json"); //这个接口随机返回一个二刺猿图片
   const data = await randomImage.json();
