@@ -47,7 +47,7 @@ export default async function Home() {
       <h1>Home</h1>
       {Array.from({ length: len }).map((_, index) => (
         <Image
-          sizes="32px"
+          sizes="256px"
           key={index}
           src={`https://eo-img.521799.xyz/i/pc/img${index + 1}.webp`}
           alt="1"
