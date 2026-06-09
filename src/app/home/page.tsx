@@ -1,7 +1,8 @@
+import { connection } from "next/server";
+
 export default async function Home() {
-  const randomImage = await fetch("https://www.loliapi.com/acg/pc?type=json", {
-    cache: "no-store",
-  }); //这个接口随机返回一个二刺猿图片
+  await connection();
+  const randomImage = await fetch("https://www.loliapi.com/acg/pc?type=json"); //这个接口随机返回一个二刺猿图片
   const data = await randomImage.json();
   console.log(data);
   return (
