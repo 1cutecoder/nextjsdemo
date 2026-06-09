@@ -1,10 +1,18 @@
-import img1 from "@/public/1.png";
 import Image from "next/image";
-export default function Home() {
+export default async function Home() {
+  const len = 20;
   return (
     <div>
       <h1>Home</h1>
-      <Image src={img1} width={192} height={108} alt="1" loading="eager" />
+      {Array.from({ length: len }).map((_, index) => (
+        <Image
+          key={index}
+          src={`https://eo-img.521799.xyz/i/pc/img${index + 1}.webp`}
+          alt="1"
+          width={192}
+          height={108}
+        />
+      ))}
     </div>
   );
 }
